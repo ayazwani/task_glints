@@ -5,5 +5,33 @@ The following repo is a simple airflow DAG that does move data from on postgres 
 Steps to use this repo:<br />
   1: clone this repo on your machine<br />
   2: cd into the airflow-docker<br />
-  3: Use this command to create environment variable for airflow <br />
+  3: open the terminal in the same working directory and use this command to create environment variable for airflow <br />
   ```echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env```<br />
+  4: use this command to init airflow setup <br /> 
+   ```docker-compose up airflow-init``` <br />
+  5: the use ```docker-compose up -d ``` to up all of your services.<br />
+  6: you can check if services are running or not using ```docker ps``` <br />
+  7: Go to your browser and type ```localhost:5884``` , you will see a login screen to airflow type <br />
+  ``` username = airflow and password = airflow ``` to login in. <br />
+  8: Once logged on go to the admin ----> connections ----> and add a new connection there for source DB <br />
+      ```connection_id = source_db <br />
+         host = db1 <br />
+         schema = source <br />
+         login = source <br />
+         password = source <br />
+         port = 5432 <br />
+       ```
+  9: Like wise same for target db <br />
+     ```connection_id = postgresql-target-db <br />
+         host = db2 <br />
+         schema = target <br />
+         login = target <br />
+         password = target <br />
+         port = 5432 <br />
+       ```
+   10: After establishing the connection go to DAGS and searcg for  <br /> ```etl_source_to_target_db_dag``` <br />
+       dag and trigger it manually. 
+   11 : it should then be able to move data from source db to target db.
+   12 : which you could then verify using ``` docker exec -it docker_container_hash/name /bin/bash <br /> psql -U target -w target <br /> the select * from target_student``` and see the requred data from source db
+   
+   

@@ -99,7 +99,7 @@ services:
       POSTGRES_PASSWORD: source
       POSTGRES_DB: source
     ports: 
-        - 5432:5432
+        - 15433:5432
     volumes: 
         - ./docker_source_postgres_init.sql:/docker-entrypoint-initdb.d/docker_source_postgres_init.sql
         - ./postgres-db-volume-1:/var/lib/postgresql/data
@@ -119,7 +119,7 @@ services:
       POSTGRES_DB: target
 
     ports: 
-        - 15433:5432
+        - 15434:5432
     volumes: 
         - ./docker_target_postgres_init.sql:/docker-entrypoint-initdb.d/docker_target_postgres_init.sql
         - ./postgres-db-volume-2:/var/lib/postgresql/data

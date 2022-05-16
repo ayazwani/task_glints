@@ -29,7 +29,7 @@ Steps to use this repo:<br />
          password = target 
          port = 5432 
        ```
-   10: After establishing the connection go to DAGS and searcg for  <br /> ```etl_source_to_target_db_dag``` <br />
+   10: After establishing the connection go to Dags and search for  <br /> ```etl_source_to_target_db_dag``` <br />
        dag and trigger it manually. 
    11 : it should then be able to move data from source db to target db.
    12 : which you could then verify using ``` docker exec -it docker_container_hash/name /bin/bash``` <br /> ```psql -U target -w target``` <br />  ```select * from target_student``` <br /> and see the requred data from source db

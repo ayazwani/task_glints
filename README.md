@@ -4,7 +4,7 @@ The following repo is a simple airflow DAG that does move data from on postgres 
 
 Steps to use this repo:<br />
   1: clone this repo on your machine<br />
-  2: cd into the airflow-docker<br />
+  2: cd into the folder<br />
   3: open the terminal in the same working directory and use this command to create environment variable for airflow <br />
   ```echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env```<br />
   4: use this command to init airflow setup <br /> 
